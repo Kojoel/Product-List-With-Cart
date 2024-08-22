@@ -45,11 +45,11 @@
     border-radius: 999px;
     border: 1px solid var(--rose-400);
     cursor: pointer;
-    transition: border .3s ease-in-out;
+    transition: all .3s ease-in-out;
 }
 
 .add-to-cart-unclicked p {
-    transition: color .3s ease-in;
+    transition: all .3s ease-in;
 }
 
 .add-to-cart-unclicked:hover{
@@ -65,6 +65,7 @@
 }
 
 .add-to-cart-clicked {
+    transition: .3s ease-in;
     width: 160px;
     height: 44px;
     background: var(--red);
@@ -74,7 +75,6 @@
     align-items: center;
     padding: 0 12px;
     position: absolute;
-    transition: .3s ease-in;
     visibility: hidden;
 }
 .quantity-decrement-icon, .quantity-increment-icon {
@@ -96,6 +96,10 @@
 }
 .quantity {
     color: var(--white);
+}
+
+.clicked {
+    visibility: visible;
 }
 
 /********* Product info style section ********/

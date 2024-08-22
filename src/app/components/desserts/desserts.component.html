@@ -1,11 +1,9 @@
 <div class="desserts-container">
     <h1 class="desserts-heading">Desserts</h1>
     <div class="prods">
-        <app-product-card/>
-        <app-product-card/>
-        <app-product-card/>
-        <app-product-card/>
-        <app-product-card/>
-        <app-product-card/>
+        @for(item of productItems; track item){
+            <app-product-card [productItem]="item"/>
+        }
+        
     </div>
 </div>
