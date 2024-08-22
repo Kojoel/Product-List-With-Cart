@@ -121,7 +121,25 @@
 
 
 /************* MEDIA QUERIES ***************/
-@media screen and (max-width: 375px) {
+
+@media screen and (max-width: 768px) {
+    .product-card {
+        width: 213.33px;
+        height: 319px;
+    }
+
+    .product-image {
+        width: 213.33px;
+        height: 212px;
+        object-fit: cover;
+    }
+
+    .add-to-cart-container {
+        top: 190px;
+    }
+}
+
+@media screen and (max-width: 470px) {
     .product-card {
         width: 327px;
         height: 319px;

@@ -11,7 +11,19 @@
 .prods {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(3, minmax(250.66px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
-    // grid-template-columns: repeat(3, 1fr);
+}
+
+/*********** Media Queries **********/
+@media screen and (max-width: 820px) {
+    .prods {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 470px) {
+    .prods {
+        grid-template-columns: 1fr;
+    }
 }

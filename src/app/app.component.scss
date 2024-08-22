@@ -10,3 +10,11 @@
     display: flex;
     gap: 32px;
 }
+
+
+/********** Media queries ***********/
+@media only screen and (max-width : 1240px) {
+    .app-wrapper {
+        flex-direction: column;
+    }
+}

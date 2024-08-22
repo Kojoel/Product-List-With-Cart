@@ -26,3 +26,11 @@
 .empty-cart-text {
     color: var(--rose-500);
 }
+
+
+/************* Media Queries ************/
+@media screen and (max-width: 1240px) {
+    .cart-container {
+        width: 100%;
+    }
+}
