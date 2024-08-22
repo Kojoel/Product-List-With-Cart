@@ -1,6 +1,7 @@
 .cart-container {
     width: 384px;
-    height: 299px;
+    min-height: 299px;
+    height: fit-content;
     background: var(--white);
     border-radius: 12;
     padding: 24px;
@@ -16,6 +17,7 @@
     flex-direction: column;
     align-items: center;
     gap: 16px;
+    // display: none; // hides empty-cart
 }
 
 .empty-cart-image {
@@ -25,6 +27,109 @@
 
 .empty-cart-text {
     color: var(--rose-500);
+}
+
+/************ FILLED CART STARTS HERE *************/
+.empty-filled-cart-wrapper {
+    position: relative;
+}
+
+.filled-cart {
+    // position: absolute;
+    // z-index: 3;
+    // top: 0;
+    display: none;
+}
+
+.cart-item-container {
+    border-bottom: 1px solid var(--rose-100);
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+}
+
+.cart-item-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item-name {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.item-details {
+    display: flex;
+    gap: 8px;
+    font-size: 1rem;
+}
+.item-quantity {
+    font-weight: 500;
+    color: var(--red);
+}
+.item-price, .item-total {
+    color: var(--rose-500);
+}
+
+.remove-item {
+    width: 17.5px;
+    height: 17.5px;
+    border-radius: 50%;
+    border: 1px solid var(--rose-400);
+    padding: 2px;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+
+    path {
+        transition: .3s ease-in-out;
+    }
+}
+
+.remove-item:hover {
+    border: 1px solid var(--black);
+
+    path {
+        fill: var(--black);
+    }
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+    margin-top: 30px;
+}
+.order-total {
+    font-size: 1.8rem;
+    font-weight: 900;
+    margin-bottom: 24px;
+}
+
+.notice {
+    width: 100%;
+    height: 52px;
+    background: var(--rose-50);
+    border-radius: 8px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.confirm-order-btn {
+    width: 100%;
+    height: 53px;
+    border: none;
+    border-radius: 999px;
+    background: var(--red);
+    color: var(--white);
+    font-size: 1.2rem;
+    font-weight: 500;
+
 }
 
 
