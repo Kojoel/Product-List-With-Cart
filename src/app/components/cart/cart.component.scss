@@ -1,0 +1,28 @@
+.cart-container {
+    width: 384px;
+    height: 299px;
+    background: var(--white);
+    border-radius: 12;
+    padding: 24px;
+}
+
+.your-cart {
+    color: var(--red);
+    margin-bottom: 24px;
+}
+
+.empty-cart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.empty-cart-image {
+    margin-top: 16px;
+    width: 128px;
+}
+
+.empty-cart-text {
+    color: var(--rose-500);
+}
