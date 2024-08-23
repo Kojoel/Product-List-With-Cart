@@ -10,12 +10,6 @@ export interface ProductItem {
   name: string;
   category: string;
   price: number;
-}
-
-export interface productsInCart {
-  totalQuantity: number;
-  name: string;
-  price: number;
-  totalPrice: number;
-  orderTotal: number;
+  quantity: number;
+  addedToCart: boolean;
 }

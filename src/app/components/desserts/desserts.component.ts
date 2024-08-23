@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ProductCardComponent } from '../product-card/product-card.component';
 import { DataService } from '../../services/data.service';
 
+
 @Component({
   selector: 'app-desserts',
   standalone: true,
@@ -12,7 +13,7 @@ import { DataService } from '../../services/data.service';
 export class DessertsComponent{
   productItems : any [] = [];
 
-  constructor(private dataService: DataService) {}
+  constructor( private dataService: DataService ) {}
 
   ngOnInit() {
     this.dataService.getProducts()
