@@ -1,37 +1,36 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CartService } from '../../services/cart.service';
 import { ProductItem } from '../../model/productItem';
 import { CommonModule } from '@angular/common';
+import { ProductCardComponent } from '../product-card/product-card.component';
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ProductCardComponent],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.scss'
 })
-export class CartComponent {
-  emptyCart: number = 0;
+export class CartComponent implements OnInit {
   cartItems: ProductItem[] = [];
+
+  itemsInCart = 0;
 
   constructor(private cartService: CartService) {}
 
   ngOnInit(): void {
-    this.cartService.cartItems$.subscribe(data => {
-      this.cartItems = data;
-      this.emptyCart = this.cartItems.length;
+    this.cartService.cartItems$.subscribe(items => {
+      this.cartItems = items;
+      this.logCartItems();
     });
   }
 
-  getTotalItems(): number {
-    return this.cartService.getTotalItems();
+  logCartItems(): void {
+    this.itemsInCart = this.cartItems.length;
+    console.log(this.cartItems)
   }
 
-  removeFromCart(product: ProductItem): void {
-    this.cartService.removeFromCart(product);
-  }
-
-  getTotalPrice() {
-    return this.cartService.getTotalPrice();
+  removeFromCart(item: ProductItem): void {
+    this.cartService.removeFromCart(item);
   }
 }

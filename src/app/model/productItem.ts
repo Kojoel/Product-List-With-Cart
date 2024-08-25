@@ -12,4 +12,7 @@ export interface ProductItem {
   price: number;
   quantity: number;
   addedToCart: boolean;
+  productTotal: number;
+  orderTotal: number;
+  totalProductsInCart: number;
 }
