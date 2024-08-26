@@ -11,17 +11,18 @@ import { ProductCardComponent } from '../product-card/product-card.component';
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.scss'
 })
-export class CartComponent implements OnInit {
+export class CartComponent {
   cartItems: ProductItem[] = [];
+  ordersCalc: number = 0;
 
   itemsInCart = 0;
 
-  constructor(private cartService: CartService) {}
+  constructor(public cartService: CartService) {}
 
   ngOnInit(): void {
     this.cartService.cartItems$.subscribe(items => {
       this.cartItems = items;
-      this.logCartItems();
+      // this.logCartItems();
     });
   }
 
@@ -32,5 +33,17 @@ export class CartComponent implements OnInit {
 
   removeFromCart(item: ProductItem): void {
     this.cartService.removeFromCart(item);
+  }
+
+  // calculateTotalOrder() {
+  //   console.log(this.cartService.cartItems$)
+  // }
+
+  logProduct() {
+    // console.log(this.cartItems)
+    for(let i=0; i < this.cartItems.length; i++) {
+      this.ordersCalc += this.cartItems[i].price;
+    }
+    console.log(this.ordersCalc)
   }
 }

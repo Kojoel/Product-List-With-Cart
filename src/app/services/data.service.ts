@@ -12,8 +12,8 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
 
-  getProducts(): Observable<ProductItem[]> {
-    return this.http.get<ProductItem[]>(this.jsonUrl);
+  getProducts() {
+    return this.http.get(this.jsonUrl);
   }
 
 }

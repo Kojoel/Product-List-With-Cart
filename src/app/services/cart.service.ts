@@ -8,21 +8,32 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class CartService {
 
-  private cartItems: ProductItem[] = [];
+  cartItems: ProductItem[] = [];
+  productItems: ProductItem[] = [];
   private cartItemsSubject = new BehaviorSubject<ProductItem[]>(this.cartItems);
 
-  cartItems$ = this.cartItemsSubject.asObservable();
+  cartItems$ = new BehaviorSubject<ProductItem[]>(this.cartItems);
+  isInCart(product:any) {
+    return this.cartItems.includes(product)
+  }
+  addToCart(product:any): void {
+    if(!this.isInCart(product)){
+      product.addedToCart = true;
+      this.cartItems.push(product);
+      console.log(this.cartItems)
+    }
 
-  addToCart(product: ProductItem): void {
-    this.cartItems.push(product);
-    this.cartItemsSubject.next(this.cartItems);
+    // this.cartItemsSubject.next(this.cartItems);
   }
   
   removeFromCart(product: ProductItem): void {
-    this.cartItems = this.cartItems.filter(item => item.name !== product.name);
+    this.cartItems = this.cartItems.filter(item => item !== product);
     product.addedToCart = false;
-    product.quantity = 0;
-    this.cartItemsSubject.next(this.cartItems);
+    product.quantity = 1;
+    this.productItems[this.productItems.indexOf(product)].quantity = 1
+    console.log(this.cartItems)
+    console.log(this.productItems)
+    // this.cartItemsSubject.next(this.cartItems);
   }
 
   getCartItems(): ProductItem[] {

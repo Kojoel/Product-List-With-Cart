@@ -1,7 +1,7 @@
 <div class="desserts-container">
     <h1 class="desserts-heading">Desserts</h1>
     <div class="prods">
-        @for(item of productItems; track item){
+        @for(item of cartService.productItems; track item){
             <app-product-card [productItem]="item"/>
         }
         
