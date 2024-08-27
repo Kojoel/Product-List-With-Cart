@@ -8,6 +8,9 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class CartService {
 
+  total : number = 0;
+  productTotalArr: number[] = [];
+  productTotalArrSum: number = 0;
   cartItems: ProductItem[] = [];
   productItems: ProductItem[] = [];
   private cartItemsSubject = new BehaviorSubject<ProductItem[]>(this.cartItems);
@@ -19,8 +22,8 @@ export class CartService {
   addToCart(product:any): void {
     if(!this.isInCart(product)){
       product.addedToCart = true;
-      this.cartItems.push(product);
-      console.log(this.cartItems)
+      this.cartItems.push(product)
+
     }
 
     // this.cartItemsSubject.next(this.cartItems);
@@ -31,8 +34,9 @@ export class CartService {
     product.addedToCart = false;
     product.quantity = 1;
     this.productItems[this.productItems.indexOf(product)].quantity = 1
-    console.log(this.cartItems)
-    console.log(this.productItems)
+    this.calcTotalOrder();
+    // console.log(this.cartItems)
+    // console.log(this.productItems)
     // this.cartItemsSubject.next(this.cartItems);
   }
 
@@ -68,5 +72,16 @@ export class CartService {
   // getTotalPrice() {
   //   return this.cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
   // }
+
+  // Gets total order
+  calcTotalOrder() {
+    for(let i = 0; i < this.cartItems.length; i++) {
+      this.productTotalArr[i] = this.cartItems[i].productTotal;
+    }
+    this.productTotalArrSum = this.productTotalArr.reduce((accumulator, currentValue) => {
+      return accumulator + currentValue;
+    })
+    console.log(this.cartItems)
+  }
 
 }

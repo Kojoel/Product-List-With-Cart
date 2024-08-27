@@ -14,6 +14,7 @@ import { ProductCardComponent } from '../product-card/product-card.component';
 export class CartComponent {
   cartItems: ProductItem[] = [];
   ordersCalc: number = 0;
+  totalofProduct: number = 0;
 
   itemsInCart = 0;
 
@@ -33,17 +34,18 @@ export class CartComponent {
 
   removeFromCart(item: ProductItem): void {
     this.cartService.removeFromCart(item);
+    this.cartService.calcTotalOrder();
   }
 
-  // calculateTotalOrder() {
-  //   console.log(this.cartService.cartItems$)
+  // // Gets total order
+  // calcTotalOrder() {
+  //   this.cartItems.forEach(item => {
+  //     console.log(item.productTotal);
+  //     this.ordersCalc += item.productTotal;
+  //     console.log(this.cartService.total) 
+  //   })
   // }
+  
 
-  logProduct() {
-    // console.log(this.cartItems)
-    for(let i=0; i < this.cartItems.length; i++) {
-      this.ordersCalc += this.cartItems[i].price;
-    }
-    console.log(this.ordersCalc)
-  }
+
 }
