@@ -4,11 +4,12 @@ import { ProductCardComponent } from './components/product-card/product-card.com
 import { DessertsComponent } from './components/desserts/desserts.component';
 import { CartComponent } from './components/cart/cart.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ModalComponent } from "./components/modal/modal.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ProductCardComponent, DessertsComponent, CartComponent, HttpClientModule],
+  imports: [RouterOutlet, ProductCardComponent, DessertsComponent, CartComponent, HttpClientModule, ModalComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

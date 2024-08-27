@@ -8,6 +8,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class CartService {
 
+  confirmOrder: boolean = false;
   total : number = 0;
   productTotalArr: number[] = [];
   productTotalArrSum: number = 0;
@@ -82,6 +83,10 @@ export class CartService {
       return accumulator + currentValue;
     })
     console.log(this.cartItems)
+  }
+
+  orderConfirmed() {
+    this.confirmOrder = true;
   }
 
 }

@@ -11,6 +11,14 @@
     gap: 32px;
 }
 
+app-modal {
+    position: absolute;
+    z-index: 4;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 
 /********** Media queries ***********/
 @media only screen and (max-width : 1240px) {

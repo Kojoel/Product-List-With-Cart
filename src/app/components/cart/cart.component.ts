@@ -15,6 +15,7 @@ export class CartComponent {
   cartItems: ProductItem[] = [];
   ordersCalc: number = 0;
   totalofProduct: number = 0;
+  confirmOrder: boolean = false;
 
   itemsInCart = 0;
 
@@ -37,15 +38,6 @@ export class CartComponent {
     this.cartService.calcTotalOrder();
   }
 
-  // // Gets total order
-  // calcTotalOrder() {
-  //   this.cartItems.forEach(item => {
-  //     console.log(item.productTotal);
-  //     this.ordersCalc += item.productTotal;
-  //     console.log(this.cartService.total) 
-  //   })
-  // }
-  
 
 
 }
