@@ -9,22 +9,24 @@
             <p>We hope you enjoy your food!</p>
         </div>
         <div class="order-details-container">
-            <div class="order-item">
-                <div class="left-side-order-details">
-                    <img class="order-image" src="../../../assets/images/image-baklava-mobile.jpg" alt="">
-                    <div class="order-details">
-                        <p class="order-name">{{ this.cartService.cartItems }}</p>
-                        <div class="order-amount">
-                            <p>1x</p>
-                            <p>&#64; $5.50</p>
+            @for(item of cartService.cartItems; track $index) {
+                <div class="order-item">
+                    <div class="left-side-order-details">
+                        <img class="order-image" [src]="item.image.mobile" [alt]="item.category">
+                        <div class="order-details">
+                            <p class="order-name">{{ item.name }}</p>
+                            <div class="order-amount">
+                                <p>{{ item.quantity }}x</p>
+                                <p>&#64; {{ item.price | currency }}</p>
+                            </div>
                         </div>
                     </div>
+                    <div class="order-single-total">{{ item.productTotal | currency }}</div>
                 </div>
-                <div class="order-single-total">5.5</div>
-            </div>
+            }
             <div class="order-total-details">
                 <p class="order-total-text">Order Total</p>
-                <p class="order-total-amount">$45.50</p>
+                <p class="order-total-amount"> {{ this.cartService.productTotalArrSum | currency }} </p>
             </div>
         </div>
         <button class="start-new-order-btn" (click)="startNewOrder()">Start New OrderR</button>

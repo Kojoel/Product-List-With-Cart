@@ -19,6 +19,22 @@ app-modal {
     transform: translateX(-50%);
 }
 
+.lightroom {
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: .7;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 4;
+    display: none;
+}
+
+.hiddenLightbox {
+    display: block;
+}
+
 
 /********** Media queries ***********/
 @media only screen and (max-width : 1240px) {
